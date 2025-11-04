@@ -1,0 +1,50 @@
+.header {
+  &__logo {
+    height: 2rem;
+    fill: $color-blue-dark-very;
+    display: block;
+  }
+
+  &__cart {
+    position: relative;
+    display: inline-block;
+
+    &-icon {
+      width: 2.8rem;
+      height: 2.6rem;
+      //   display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    &-count {
+      background-color: $color-primary;
+      color: $color-white;
+      font-size: 1rem;
+      font-weight: $font-weight-bold;
+      padding: 0.15rem 0.6rem;
+      border-radius: 50%;
+      position: absolute;
+
+      top: -1rem;
+      right: 0;
+      z-index: 10;
+    }
+  }
+  &__user-img {
+    width: 5rem;
+    border: 1px solid $color-primary;
+    border-radius: 50%;
+  }
+  &__nav {
+    &-items {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      text-decoration: none;
+    }
+
+    &-list {
+      text-decoration: none;
+    }
+  }
+}

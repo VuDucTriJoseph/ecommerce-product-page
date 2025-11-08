@@ -1,4 +1,9 @@
 .header {
+  display: grid;
+  grid-template-columns: max-content auto 1fr max-content max-content;
+  height: 8.3rem;
+  padding-bottom: 3.3rem;
+  border-bottom: 1px solid $color-blue-grayish;
   &__logo {
     height: 2rem;
     fill: $color-blue-dark-very;
@@ -8,6 +13,8 @@
   &__cart {
     position: relative;
     display: inline-block;
+    width: 6.8rem;
+    grid-column: 4/5;
 
     &-icon {
       width: 2.8rem;
@@ -27,7 +34,7 @@
       position: absolute;
 
       top: -1rem;
-      right: 0;
+      left: 1.5rem;
       z-index: 10;
     }
   }
@@ -39,12 +46,31 @@
   &__nav {
     &-items {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      text-decoration: none;
+      grid-template-columns: repeat(5, max-content);
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+      justify-content: start;
     }
 
     &-list {
-      text-decoration: none;
+    }
+    &-link {
+      &:link,
+      &:visited {
+        font-size: 1.5rem;
+        line-height: 2.6rem;
+        color: $color-blue-dark-grayish;
+        text-decoration: none;
+        font-weight: $font-weight-regular;
+        font-family: $font-family-primary;
+        text-align: center;
+        display: block;
+      }
+
+      &:hover,
+      :active {
+      }
     }
   }
 }

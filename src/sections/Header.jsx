@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <header className="header__container">
+    <header className="header">
       <svg className="header__logo">
         <use xlinkHref="/images/logo.svg#icon-logo"></use>
       </svg>

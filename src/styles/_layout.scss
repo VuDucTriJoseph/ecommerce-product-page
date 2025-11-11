@@ -2,6 +2,16 @@
   width: 110rem;
   border: none;
   // box-shadow: 0 3rem 6rem rgba($color-back, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
-header {
+
+.text_componnent {
+  height: 20rem;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

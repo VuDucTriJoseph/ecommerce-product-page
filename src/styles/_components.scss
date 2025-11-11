@@ -1,0 +1,60 @@
+.btn-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  width: 27.2rem;
+  height: 5.6rem;
+  background-color: $color-primary;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 1.6rem 7.2rem;
+  transition: all 0.2s;
+
+  &_icon {
+    width: 1.746rem;
+    height: 1.6rem;
+    // display: block;
+    fill: $color-back;
+  }
+
+  &:hover {
+    background-color: $color-primary-light;
+    transform: translateY(0.3rem);
+  }
+  &:active {
+    transform: translateY(-0.2rem);
+  }
+}
+
+.quantityBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15.7rem;
+  height: 5.6rem;
+  padding: 1.6rem 0.8rem;
+  background-color: $color-blue-light-very;
+  border-radius: 1rem;
+
+  &_text {
+    color: $color-blue-dark-very;
+  }
+
+  &_btn {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: none;
+
+    &-minus {
+    }
+    &-plus {
+      mask: url("/images/icon-plus.sgv");
+      mask-size: contain;
+      background-color: $color-primary;
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}

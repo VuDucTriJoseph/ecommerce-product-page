@@ -46,15 +46,31 @@
     width: 1.2rem;
     height: 1.2rem;
     border: none;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.2s;
 
-    &-minus {
-    }
+    &-minus,
     &-plus {
-      mask: url("/images/icon-plus.sgv");
       mask-size: contain;
       background-color: $color-primary;
       width: 1.2rem;
       height: 1.2rem;
+    }
+
+    &-minus {
+      mask: url("/images/icon-minus.svg") no-repeat center;
+    }
+    &-plus {
+      mask: url("/images/icon-plus.svg") no-repeat center;
+    }
+
+    &:hover > * {
+      background-color: $color-primary-light;
+    }
+
+    &:active {
+      transform: translateY(-0.3rem);
     }
   }
 }

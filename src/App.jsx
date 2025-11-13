@@ -1,5 +1,7 @@
 import Button from "./component/Button";
+import Cart from "./component/Cart";
 import Quantitybox from "./component/QuantityBox";
+import Thumbnails from "./component/Thumbnails";
 import Header from "./sections/Header";
 
 function App() {
@@ -7,8 +9,7 @@ function App() {
     <main className="main">
       <Header />
       <div className="text_componnent">
-        <Button />
-        <Quantitybox />
+        <Cart />
       </div>
     </main>
   );

@@ -179,3 +179,45 @@
     }
   }
 }
+
+.lightbox {
+  background: rgba($color-back, 0.5); /* nền trong suốt */
+  backdrop-filter: blur(1px);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    // background-color: $color-back;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn {
+    margin-bottom: 2.4rem;
+    width: 100%;
+    &-close {
+      display: flex;
+      justify-content: end;
+      mask: url("/images/icon-close.svg") no-repeat center;
+      mask-size: contain;
+      background-color: $color-white;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &__img {
+    width: 55rem;
+    margin-bottom: 4rem;
+    border-radius: 1.5rem;
+  }
+}

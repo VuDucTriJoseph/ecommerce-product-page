@@ -204,14 +204,23 @@
   &__btn {
     margin-bottom: 2.4rem;
     width: 100%;
+    display: flex;
+    justify-content: end;
     &-close {
-      display: flex;
-      justify-content: end;
       mask: url("/images/icon-close.svg") no-repeat center;
       mask-size: contain;
       background-color: $color-white;
       width: 2rem;
       height: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-primary;
+      }
+      &:active {
+        background-color: $color-primary-light;
+        transform: scale(1.2);
+      }
     }
   }
 
@@ -219,5 +228,56 @@
     width: 55rem;
     margin-bottom: 4rem;
     border-radius: 1.5rem;
+    // position: relative;
   }
+  &__image {
+    position: relative;
+  }
+}
+
+.nextBTN {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  padding: 0 1.5rem;
+
+  &__icon {
+    width: 5rem;
+    height: 5rem;
+    background-color: $color-white;
+    border-radius: 50%;
+
+    cursor: pointer;
+    &:hover > * {
+      background-color: $color-primary;
+    }
+
+    &-previous {
+      mask: url("/images/icon-previous.svg") no-repeat center;
+    }
+
+    &-next {
+      mask: url("/images/icon-next.svg") no-repeat center;
+    }
+
+    &-previous,
+    &-next {
+      margin: 1.5rem;
+      mask-size: contain;
+      background-color: $color-back;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+.forLightbox {
+  display: flex;
+  width: 109%;
+  padding: 0;
+  transform: translateX(-4%);
 }

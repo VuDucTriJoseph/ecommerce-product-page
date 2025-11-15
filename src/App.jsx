@@ -9,7 +9,9 @@ function App() {
   return (
     <main className="main">
       <Header />
-      <div className="text_componnent">{<LightBox />}</div>
+      <div className="text_componnent">
+        <LightBox />
+      </div>
     </main>
   );
 }

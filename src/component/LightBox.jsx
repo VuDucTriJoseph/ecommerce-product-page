@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Thumbnails from "./Thumbnails";
+import NextButton from "./NextButton";
 
 const imagesText = [
   {
@@ -31,11 +32,14 @@ function LightBox() {
             onClick={() => setShowLightbox(!showLightbox)}
           ></div>
         </div>
-        <img
-          src={imagesText[0].main}
-          alt="product image"
-          className="lightbox__img"
-        />
+        <div className="lightbox__image">
+          <img
+            src={imagesText[0].main}
+            alt="product image"
+            className="lightbox__img"
+          />
+          <NextButton customClass="forLightbox" />
+        </div>
         <Thumbnails />
       </div>
     </div>

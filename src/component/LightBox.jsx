@@ -1,28 +1,14 @@
 import { useState } from "react";
+
 import Thumbnails from "./Thumbnails";
 import NextButton from "./NextButton";
-
-const imagesText = [
-  {
-    main: "/images/image-product-1.jpg",
-    thumbnail: "/images/image-product-1-thumbnail.jpg",
-  },
-  {
-    main: "/images/image-product-2.jpg",
-    thumbnail: "/images/image-product-2-thumbnail.jpg",
-  },
-  {
-    main: "/images/image-product-3.jpg",
-    thumbnail: "/images/image-product-3-thumbnail.jpg",
-  },
-  {
-    main: "/images/image-product-4.jpg",
-    thumbnail: "/images/image-product-4-thumbnail.jpg",
-  },
-];
+import { useProduct } from "../context/useProduct";
 
 function LightBox() {
   const [showLightbox, setShowLightbox] = useState(true);
+  const { product } = useProduct();
+  // const images = product.images;
+  console.log(product);
   return (
     <div className={`lightbox ${showLightbox ? "" : "hidden"}`}>
       <div className="lightbox__container">
@@ -34,7 +20,7 @@ function LightBox() {
         </div>
         <div className="lightbox__image">
           <img
-            src={imagesText[0].main}
+            src={product.images[0].main}
             alt="product image"
             className="lightbox__img"
           />

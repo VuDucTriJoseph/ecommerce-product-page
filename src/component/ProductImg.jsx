@@ -1,10 +1,9 @@
-// import { useState } from "react";
-
 import Thumbnails from "./Thumbnails";
 import NextButton from "./NextButton";
 import { useProduct } from "../context/useProduct";
+import LightBox from "./LightBox";
 
-function LightBox() {
+function ProductImg() {
   const { product, loading, showLightbox, setShowLightbox, currentIndex } =
     useProduct();
   // const images = product.images;
@@ -12,26 +11,25 @@ function LightBox() {
   // console.log(product);
 
   return (
-    <div className={`lightbox ${showLightbox ? "hidden" : ""}`}>
-      <div className="lightbox__container">
-        <div
-          className="lightbox__btn"
-          onClick={() => setShowLightbox(!showLightbox)}
-        >
-          <div className="lightbox__btn-close"></div>
-        </div>
+    <div className="productImg">
+      <div className="productImg__container">
         {loading ? (
-          <div className="lightbox__image">
+          <div className="productImg__image">
             <p className="text-pre-2 ">Loading...</p>
           </div>
         ) : (
-          <div className="lightbox__image">
+          <div className="productImg__image">
             <img
               src={product?.images[currentIndex]?.main}
               alt="product image"
-              className="lightbox__img"
+              className="productImg__img"
             />
-            <NextButton customClass="forLightbox" />
+            <div
+              className="productImg__showLbox"
+              onClick={() => setShowLightbox(!setShowLightbox)}
+            ></div>
+            {/* <LightBox /> */}
+            <NextButton />
           </div>
         )}
 
@@ -41,4 +39,4 @@ function LightBox() {
   );
 }
 
-export default LightBox;
+export default ProductImg;

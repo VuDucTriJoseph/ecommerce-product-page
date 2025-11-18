@@ -1,4 +1,8 @@
+import Cart from "../component/Cart";
+import { useProduct } from "../context/useProduct";
+
 function Header() {
+  const { cart, showCart, setShowCart } = useProduct();
   return (
     <header className="header">
       <svg className="header__logo">
@@ -33,11 +37,16 @@ function Header() {
           </li>
         </ul>
       </nav>
-      <div className="header__cart">
+      <div className="header__cart" onClick={() => setShowCart(!showCart)}>
         <svg className="header__cart-icon">
           <use xlinkHref="/images/icon-cart.svg#icon-cart"></use>
         </svg>
-        <span className="header__cart-count">3</span>
+        {cart.lenght > 0 ? (
+          <span className="header__cart-count">{cart?.lenght}</span>
+        ) : (
+          ""
+        )}
+        <Cart />
       </div>
       <img src="/images/image-avatar.png" alt="" className="header__user-img" />
     </header>

@@ -1,19 +1,18 @@
-import Button from "./component/Button";
-import Cart from "./component/Cart";
-import LightBox from "./component/LightBox";
-import Quantitybox from "./component/QuantityBox";
-import Thumbnails from "./component/Thumbnails";
 import { ProductProvider } from "./context/ProductContext";
+
+import LightBox from "./component/LightBox";
 import Header from "./sections/Header";
+import ProductImg from "./component/ProductImg";
 
 function App() {
   return (
     <ProductProvider>
       <main className="main">
         <Header />
-        <div className="text_componnent">
-          <LightBox />
-        </div>
+        <section className="product">
+          <ProductImg />
+        </section>
+        <LightBox />
       </main>
     </ProductProvider>
   );

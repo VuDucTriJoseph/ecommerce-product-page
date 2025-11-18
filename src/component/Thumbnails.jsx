@@ -1,3 +1,5 @@
+import { useProduct } from "../context/useProduct";
+
 const imagesText = [
   {
     main: "/images/image-product-1.jpg",
@@ -18,14 +20,16 @@ const imagesText = [
 ];
 
 function Thumbnails() {
+  const { product, currentIndex, setCurrentIndex } = useProduct();
   return (
     <div className="thumbnails">
-      {imagesText.map((thumb, index) => (
+      {product?.images.map((thumb, index) => (
         <div
           key={index}
           className={`${
-            index === 2 ? "thumbnails__active" : ""
+            index === currentIndex ? "thumbnails__active" : ""
           } thumbnails__item`}
+          onClick={() => setCurrentIndex(index)}
         >
           <img
             src={thumb.thumbnail}

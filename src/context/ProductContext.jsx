@@ -9,16 +9,18 @@ const BASE_URL = "http://localhost:5173";
 export function ProductProvider({ children }) {
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(false);
-  const [showLightbox, setShowLightbox] = useState(false);
+  const [showLightbox, setShowLightbox] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cart, setCart] = useState([]);
-  const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(true);
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     async function feachProductData() {
       try {
         setLoading(true);
-        const res = await fetch(`${BASE_URL}/productData.json`);
+        // const res = await fetch(`${BASE_URL}/productData.json`);
+        const res = await fetch("/productData.json");
         const data = await res.json();
         console.log(data);
         setProduct(data);
@@ -47,6 +49,17 @@ export function ProductProvider({ children }) {
     setCart((cart) => [...cart, prodc]);
   };
 
+  function plus() {
+    const more = quantity + 1;
+    setQuantity(more);
+  }
+
+  function minus() {
+    if (quantity < 1) return;
+    const less = quantity - 1;
+    setQuantity(less);
+  }
+
   return (
     <ProductContext.Provider
       value={{
@@ -63,6 +76,9 @@ export function ProductProvider({ children }) {
         cart,
         showCart,
         setShowCart,
+        quantity,
+        plus,
+        minus,
       }}
     >
       {children}

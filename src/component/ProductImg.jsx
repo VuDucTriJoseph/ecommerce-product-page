@@ -26,7 +26,7 @@ function ProductImg() {
             />
             <div
               className="productImg__showLbox"
-              onClick={() => setShowLightbox(!setShowLightbox)}
+              onClick={() => setShowLightbox(!showLightbox)}
             ></div>
             {/* <LightBox /> */}
             <NextButton />

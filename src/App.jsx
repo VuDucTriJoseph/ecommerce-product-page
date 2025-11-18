@@ -3,6 +3,7 @@ import { ProductProvider } from "./context/ProductContext";
 import LightBox from "./component/LightBox";
 import Header from "./sections/Header";
 import ProductImg from "./component/ProductImg";
+import ProductDetail from "./component/ProductDetal";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Header />
         <section className="product">
           <ProductImg />
+          <ProductDetail />
         </section>
         <LightBox />
       </main>

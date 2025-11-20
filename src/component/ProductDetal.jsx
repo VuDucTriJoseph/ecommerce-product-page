@@ -16,9 +16,9 @@ function ProductDetail() {
       <div className="productDetail__price">
         <p className="productDetail__price-after text-pre-2">{`${
           product?.curentcy
-        } ${(product?.price * product?.discount) / 100}`}</p>
+        } ${(product?.price * product?.discount) / 100}.00`}</p>
         <p className="productDetail__price-discount text-pre-3--bold">{`${product?.discount} %`}</p>
-        <p className="productDetail__price-befor text-pre-3--regular">{`${product?.curentcy} ${product?.price}`}</p>
+        <p className="productDetail__price-befor text-pre-3--regular">{`${product?.curentcy} ${product?.price}.00`}</p>
       </div>
       <div className="productDetail__control">
         <Quantitybox />

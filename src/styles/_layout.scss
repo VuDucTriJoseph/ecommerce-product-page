@@ -4,14 +4,12 @@
   // box-shadow: 0 3rem 6rem rgba($color-back, 0.5);
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 9.6rem;
 }
 
-.text_componnent {
-  height: 20rem;
+.product {
   display: flex;
-  gap: 3rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  justify-content: space-around;
+  padding: 0;
 }

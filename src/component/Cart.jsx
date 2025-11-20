@@ -12,7 +12,7 @@ import { useProduct } from "../context/useProduct";
 // ];
 
 function Cart() {
-  const { cart, showCart } = useProduct();
+  const { cart, showCart, setShowCart, removeFromCart } = useProduct();
   return (
     <div className={`cart ${showCart ? "hidden" : ""}`}>
       <h3 className="cart__title text-pre-3--bold">Cart</h3>
@@ -22,17 +22,23 @@ function Cart() {
         </div>
       ) : (
         <div className="cart__info">
-          {cart.map((cart) => (
-            <div className="cart__item">
-              <img src={cart.image} alt="product image" className="cart__img" />
+          {cart.map((product) => (
+            <div className="cart__item" key={product.id}>
+              <img
+                src={product.images[0].thumbnail}
+                alt="product image"
+                className="cart__img"
+              />
               <p>
                 <span className="cart__name text-pre-3--regular">
-                  {cart.name} {cart.curentcy}
-                  {(cart.price * cart.discount) / 100} x {cart.quantity}
+                  {product.name} {product.curentcy}
+                  {(product.price * product.discount) / 100} x{" "}
+                  {product.quantity}
                 </span>
                 <span className="cart__total text-pre-3--bold">
-                  {cart.curentcy}
-                  {((cart.price * cart.discount) / 100) * cart.quantity}
+                  {product.curentcy}
+                  {((product.price * product.discount) / 100) *
+                    product.quantity}
                 </span>
               </p>
 
@@ -40,6 +46,7 @@ function Cart() {
                 src="/images/icon-delete.svg"
                 alt="delete button icon"
                 className="cart__btn--remove-icon"
+                onClick={() => removeFromCart(product.id)}
               />
             </div>
           ))}

@@ -22,7 +22,7 @@ export function ProductProvider({ children }) {
         // const res = await fetch(`${BASE_URL}/productData.json`);
         const res = await fetch("/productData.json");
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         setProduct(data);
       } catch {
         alert("There was an error loading data...");
@@ -45,20 +45,36 @@ export function ProductProvider({ children }) {
     );
   };
 
-  const addToCart = (prodc) => {
-    setCart((cart) => [...cart, prodc]);
+  const addToCart = () => {
+    // console.log("click");
+    setCart((prevCart) => {
+      // Kiểm tra có tồn tại không
+      const exist = prevCart.find((item) => item.id === product.id);
+      // console.log(product.id);
+
+      if (exist) {
+        // Nếu đã có → thay quantity
+        return prevCart.map((item) =>
+          item.id === product.id ? { ...item, quantity } : item
+        );
+      }
+
+      // Nếu chưa có → thêm mới
+      return [...prevCart, { ...product, quantity }];
+    });
   };
 
-  function plus() {
-    const more = quantity + 1;
-    setQuantity(more);
-  }
+  const removeFromCart = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
 
-  function minus() {
-    if (quantity < 1) return;
-    const less = quantity - 1;
-    setQuantity(less);
-  }
+  const minus = () => {
+    setQuantity((quan) => (quan > 0 ? quan - 1 : 0));
+    // console.log("click");
+  };
+  const plus = () => {
+    setQuantity((quan) => quan + 1);
+  };
 
   return (
     <ProductContext.Provider
@@ -77,8 +93,9 @@ export function ProductProvider({ children }) {
         showCart,
         setShowCart,
         quantity,
-        plus,
         minus,
+        plus,
+        removeFromCart,
       }}
     >
       {children}

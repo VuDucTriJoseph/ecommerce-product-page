@@ -1,9 +1,9 @@
 import { useProduct } from "../context/useProduct";
 
-function Button({ productdata }) {
+function Button() {
   const { addToCart } = useProduct();
   return (
-    <button className="btn-add" onClick={() => addToCart(productdata)}>
+    <button className="btn-add" onClick={addToCart}>
       <svg className="btn-add_icon">
         <use xlinkHref="/images/icon-cart.svg#icon-cart"></use>
       </svg>
